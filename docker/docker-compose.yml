@@ -5,11 +5,14 @@ services:
     build: nodejs
     volumes:
       - ..:/usr/src/app
+      - ./data/shell_history:/home/node/shell_history
     ports:
       - 3000:3000
     environment:
-      NODE_ENV: development
       PORT: 3000
+      HISTFILE: /home/node/shell_history/.x_history
+    # command: npm install
+    # command: /usr/src/app/entrypoint.sh
     command: >
       ash -c "npm install &&
       npm run start:dev"
