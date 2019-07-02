@@ -1,0 +1,21 @@
+import {InvalidIdException} from '../exception/invalid-id-exception';
+
+export abstract class BasicEntityId {
+
+    protected id: string;
+
+    constructor(id: string) {
+        this.setId(id);
+    }
+
+    private setId(id: string): void {
+
+        const uuidRegex = new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$');
+
+        if (!uuidRegex.test(id)) {
+            throw new InvalidIdException();
+        }
+
+        this.id = id;
+    }
+}

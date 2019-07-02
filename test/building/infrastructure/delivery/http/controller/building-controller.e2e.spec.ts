@@ -16,7 +16,7 @@ describe('BuildingController (e2e)', () => {
 
   it('/ (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/building')
       .expect(200)
       .expect('Hello Mat');
   });
