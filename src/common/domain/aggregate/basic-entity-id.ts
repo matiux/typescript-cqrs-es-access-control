@@ -4,7 +4,7 @@ export abstract class BasicEntityId {
 
     protected id: string;
 
-    constructor(id: string) {
+    protected constructor(id: string) {
         this.setId(id);
     }
 
@@ -17,5 +17,11 @@ export abstract class BasicEntityId {
         }
 
         this.id = id;
+    }
+
+    public static create(id: string): BasicEntityId {
+
+        // return new (<any> this)();
+        return new (this as any)(id);
     }
 }

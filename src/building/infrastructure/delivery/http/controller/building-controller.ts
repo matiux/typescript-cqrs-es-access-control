@@ -1,12 +1,28 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from '../../../../../app.service';
+import {Controller, Post} from '@nestjs/common';
 
 @Controller('building')
 export class BuildingController {
-  constructor(private readonly appService: AppService) {}
+    // constructor(private readonly commandBus: CommandBus) {
+    // }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+    // @Get()
+    // async getBuilding(): Promise<string> {
+    //   return this.appService.getBuilding();
+    // }
+
+    @Post()
+    async createBuilding(): Promise<string> {
+
+        // throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+
+        //  await this.commandBus.execute(
+        //      new CreateBuilding(BuildingId, killDragonDto.dragonId)
+        //  );
+        //
+        return 'I\'m a building!';
+
+        // return this.showBuildingService.execute();
+
+        // return this.appService.getBuilding();
+    }
 }

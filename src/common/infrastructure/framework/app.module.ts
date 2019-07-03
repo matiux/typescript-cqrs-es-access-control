@@ -1,5 +1,5 @@
 import {Module} from '@nestjs/common';
-import {BuildingModule} from './building/infrastructure/framework/building.module';
+import {BuildingModule} from '../../../building/infrastructure/framework/building.module';
 
 @Module({
     imports: [BuildingModule],

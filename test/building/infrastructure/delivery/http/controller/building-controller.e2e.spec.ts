@@ -14,10 +14,10 @@ describe('BuildingController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/ (POST)', () => {
     return request(app.getHttpServer())
-      .get('/building')
-      .expect(200)
-      .expect('Hello Mat');
+      .post('/building')
+      .expect(201)
+      .expect('I\'m a building!');
   });
 });
