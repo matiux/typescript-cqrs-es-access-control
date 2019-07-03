@@ -1,9 +1,13 @@
 import {Controller, Post} from '@nestjs/common';
+import * as uuid from 'uuid/v4';
+import {CommandBus} from '@nestjs/cqrs';
+import {BuildingId} from '../../../../domain/aggregate/building-id';
+import {CreateBuilding} from '../../../../domain/command/create-building';
 
 @Controller('building')
 export class BuildingController {
-    // constructor(private readonly commandBus: CommandBus) {
-    // }
+    constructor(private readonly commandBus: CommandBus) {
+    }
 
     // @Get()
     // async getBuilding(): Promise<string> {
@@ -11,15 +15,19 @@ export class BuildingController {
     // }
 
     @Post()
-    async createBuilding(): Promise<string> {
+    async createBuilding(): Promise<{}> {
 
         // throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
 
-        //  await this.commandBus.execute(
-        //      new CreateBuilding(BuildingId, killDragonDto.dragonId)
-        //  );
-        //
-        return 'I\'m a building!';
+        const buildingId: BuildingId = BuildingId.create(uuid());
+
+        await this.commandBus.execute(
+            new CreateBuilding(buildingId, 'Stark tower', new Date()),
+        );
+
+        return {
+            id: buildingId.toString(),
+        };
 
         // return this.showBuildingService.execute();
 

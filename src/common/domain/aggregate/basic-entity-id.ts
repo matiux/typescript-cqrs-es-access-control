@@ -24,4 +24,9 @@ export abstract class BasicEntityId {
         // return new (<any> this)();
         return new (this as any)(id);
     }
+
+    public toString(): string {
+
+        return this.id;
+    }
 }
