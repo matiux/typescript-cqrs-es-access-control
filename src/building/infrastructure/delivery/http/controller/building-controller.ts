@@ -15,7 +15,7 @@ export class BuildingController {
     // }
 
     @Post()
-    async createBuilding(): Promise<{}> {
+    async createBuilding() {
 
         // throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
 

@@ -11,7 +11,9 @@ export class CreateBuildingCommandHandler implements ICommandHandler<CreateBuild
 
     async execute(command: CreateBuilding): Promise<any> {
 
-        Logger.log('Async CreateUserHandler...', 'CreateUserCommand');
+        Logger.log('Log: Async CreateBuildingCommandHandler...', 'CreateBuilding command');
+
+        const {buildingId} = command;
 
         // const {userDto} = command;
         // const user = this.publisher.mergeObjectContext(
