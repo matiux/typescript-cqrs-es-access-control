@@ -13,7 +13,7 @@ export class CreateBuildingCommandHandler implements ICommandHandler<CreateBuild
 
         Logger.log('Log: Async CreateBuildingCommandHandler...', 'CreateBuilding command');
 
-        const {buildingId} = command;
+        //const {buildingId} = command;
 
         // const {userDto} = command;
         // const user = this.publisher.mergeObjectContext(

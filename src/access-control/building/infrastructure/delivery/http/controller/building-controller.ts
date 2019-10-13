@@ -9,11 +9,6 @@ export class BuildingController {
     constructor(private readonly commandBus: CommandBus) {
     }
 
-    // @Get()
-    // async getBuilding(): Promise<string> {
-    //   return this.appService.getBuilding();
-    // }
-
     @Post()
     async createBuilding() {
 

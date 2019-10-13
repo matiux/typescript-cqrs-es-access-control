@@ -1,6 +1,6 @@
 import {Test, TestingModule} from '@nestjs/testing';
-import {BuildingController} from '../../../../../../src/building/infrastructure/delivery/http/controller/building-controller';
-import {AppModule} from '../../../../../../src/app.module';
+import {BuildingController} from '../../../../../../../src/access-control/building/infrastructure/delivery/http/controller/building-controller';
+import {AppModule} from '../../../../../../../src/app.module';
 
 describe('BuildingController', () => {
     let buildingController: BuildingController;
