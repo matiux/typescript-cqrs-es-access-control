@@ -1,17 +1,19 @@
 import {CommandHandler, ICommandHandler} from '@nestjs/cqrs';
 import {CreateBuilding} from '@building/domain/command/CreateBuilding'
-import {Logger} from '@nestjs/common';
+import {CreateBuildingService} from '@building/application/service/CreateBuildingService';
 
 @CommandHandler(CreateBuilding)
 export class CreateBuildingCommandHandler implements ICommandHandler<CreateBuilding> {
 
-    constructor() {
+    constructor(private readonly createBuildingService: CreateBuildingService) {
         // private readonly repository: BuildingRepository, private readonly publisher: EventPublisher
     }
 
     async execute(command: CreateBuilding): Promise<any> {
 
-        Logger.log('Log: Async CreateBuildingCommandHandler...', 'CreateBuilding command');
+        this.createBuildingService.execute();
+
+        
 
         //const {buildingId} = command;
         // const {userDto} = command;

@@ -1,1 +1,1 @@
-export class InvalidIdException extends Error { }
+export class InvalidIdException extends Error {}

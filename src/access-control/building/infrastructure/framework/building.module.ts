@@ -17,5 +17,4 @@ import {BuildingCommandHandlers} from '@building/application/handler/CommandHand
     ],
 })
 export class BuildingModule {
-
 }

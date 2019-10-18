@@ -22,7 +22,7 @@ export class BuildingController {
         return {
             id: buildingId.toString(),
         };
-
+        
         // return this.showBuildingService.execute();
         // return this.appService.getBuilding();
     }
