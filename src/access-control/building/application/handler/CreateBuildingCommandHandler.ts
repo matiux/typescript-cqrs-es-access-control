@@ -1,5 +1,5 @@
 import {CommandHandler, ICommandHandler} from '@nestjs/cqrs';
-import {CreateBuilding} from '../../domain/command/create-building';
+import {CreateBuilding} from '@building/domain/command/CreateBuilding'
 import {Logger} from '@nestjs/common';
 
 @CommandHandler(CreateBuilding)
@@ -14,7 +14,6 @@ export class CreateBuildingCommandHandler implements ICommandHandler<CreateBuild
         Logger.log('Log: Async CreateBuildingCommandHandler...', 'CreateBuilding command');
 
         //const {buildingId} = command;
-
         // const {userDto} = command;
         // const user = this.publisher.mergeObjectContext(
         //     await this.repository.createUser(userDto),

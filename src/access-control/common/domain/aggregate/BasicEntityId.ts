@@ -1,4 +1,4 @@
-import {InvalidIdException} from '../exception/invalid-id-exception';
+import {InvalidIdException} from '@common/domain/exception/InvalidIdException';
 
 export abstract class BasicEntityId {
 

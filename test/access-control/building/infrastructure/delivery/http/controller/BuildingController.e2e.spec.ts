@@ -1,6 +1,6 @@
 import {Test, TestingModule} from '@nestjs/testing';
 import * as request from 'supertest';
-import {AppModule} from '../../../../../../../src/app.module';
+import {AppModule} from '@root/app.module';
 
 describe('BuildingController (e2e)', () => {
     let app;
@@ -14,12 +14,12 @@ describe('BuildingController (e2e)', () => {
         await app.init();
     });
 
-    it('/ (POST)', () => {
-        return request(app.getHttpServer())
+    it('/ (POST)', async () => {
+        
+        const response = await request(app.getHttpServer())
             .post('/building')
-            .expect(201)
-            .then(response => {
-                expect(response.body.id).toMatch(new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'));
-            });
+            .expect(201);
+
+        expect(response.body.id).toMatch(new RegExp('^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$'));
     });
 });

@@ -1,4 +1,4 @@
-import {BuildingId} from '../aggregate/building-id';
+import {BuildingId} from '@building/domain/aggregate/BuildingId'
 
 export class CreateBuilding {
 

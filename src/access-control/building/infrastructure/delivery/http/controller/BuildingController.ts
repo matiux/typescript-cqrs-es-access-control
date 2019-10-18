@@ -1,8 +1,8 @@
 import {Controller, Post} from '@nestjs/common';
 import * as uuid from 'uuid/v4';
 import {CommandBus} from '@nestjs/cqrs';
-import {BuildingId} from '../../../../domain/aggregate/building-id';
-import {CreateBuilding} from '../../../../domain/command/create-building';
+import {BuildingId} from '@building/domain/aggregate/BuildingId';
+import {CreateBuilding} from '@building/domain/command/CreateBuilding';
 
 @Controller('building')
 export class BuildingController {
@@ -13,7 +13,6 @@ export class BuildingController {
     async createBuilding() {
 
         // throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
-
         const buildingId: BuildingId = BuildingId.create(uuid());
 
         await this.commandBus.execute(
@@ -25,7 +24,6 @@ export class BuildingController {
         };
 
         // return this.showBuildingService.execute();
-
         // return this.appService.getBuilding();
     }
 }

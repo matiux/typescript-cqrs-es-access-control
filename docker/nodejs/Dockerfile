@@ -4,7 +4,11 @@ RUN npm i -g @nestjs/cli
 
 RUN apk update \
     && apk --no-cache add \
-    bash
+    bash \
+    g++ \
+    make \
+    python
+
 
 # Create and define the node_modules's cache directory.
 # RUN mkdir /usr/src/cache

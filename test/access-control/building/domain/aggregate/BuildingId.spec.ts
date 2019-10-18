@@ -1,5 +1,6 @@
-import {BuildingId} from '../../../../../src/access-control/building/domain/aggregate/building-id';
-import {InvalidIdException} from '../../../../../src/access-control/common/domain/exception/invalid-id-exception';
+// import {BuildingId} from '../../../../../src/access-control/building/domain/aggregate/BuildingId';
+import {BuildingId} from '@building/domain/aggregate/BuildingId';
+import {InvalidIdException} from '../../../../../src/access-control/common/domain/exception/InvalidIdException';
 
 describe('BasicEntityId', () => {
 

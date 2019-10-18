@@ -8,8 +8,16 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true
+    "baseUrl": "./src",
+    "allowJs": false,
+    "incremental": true,
+    "paths": {
+      "@common/*": ["access-control/common/*"],
+      "@building/*": ["access-control/building/*"],
+      "@root/*": ["./*"]
+    }
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

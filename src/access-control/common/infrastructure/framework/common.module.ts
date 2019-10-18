@@ -1,5 +1,5 @@
 import {Module} from '@nestjs/common';
-import {CommonController} from '../delivery/http/controller/common-controller';
+import {CommonController} from '@common/infrastructure/delivery/http/controller/CommonController';
 
 @Module({
     //imports: [BuildingModule],
