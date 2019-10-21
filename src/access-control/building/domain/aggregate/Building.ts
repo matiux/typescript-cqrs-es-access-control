@@ -1,19 +1,18 @@
 import { AggregateRoot } from '@nestjs/cqrs';
 import { BuildingCreated } from '@building/domain/event/BuildingCreated';
 import { BuildingId } from '@building/domain/aggregate/BuildingId';
+import { Logger } from '@nestjs/common';
 
 export class Building extends AggregateRoot {
 
-    constructor(){
-        super();
-    }
+    public create(buildingId: BuildingId, occurredAt: Date) {
 
-    public static create(buildingId: BuildingId, occurredAt: Date): Building {
+        Logger.log('Building. Creazione Building');
 
-        let building = new this;
+        // const building = new Building();
 
-        this.apply(new BuildingCreated(buildingId, occurredAt))        
+        this.apply(new BuildingCreated(buildingId, occurredAt));
 
-        return building;
+        // return building;
     }
 }

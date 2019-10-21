@@ -15,7 +15,7 @@ describe('BuildingController (e2e)', () => {
     });
 
     it('/ (POST)', async () => {
-        
+
         const response = await request(app.getHttpServer())
             .post('/building')
             .expect(201);
