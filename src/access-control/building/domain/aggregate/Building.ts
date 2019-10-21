@@ -5,14 +5,14 @@ import { Logger } from '@nestjs/common';
 
 export class Building extends AggregateRoot {
 
-    public create(buildingId: BuildingId, occurredAt: Date) {
+    public static create(buildingId: BuildingId, occurredAt: Date) {
 
         Logger.log('Building. Creazione Building');
 
-        // const building = new Building();
+        const building = new Building();
 
-        this.apply(new BuildingCreated(buildingId, occurredAt));
+        building.apply(new BuildingCreated(buildingId, occurredAt));
 
-        // return building;
+        return building;
     }
 }

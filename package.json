@@ -22,9 +22,10 @@
   "dependencies": {
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
-    "@nestjs/cqrs": "^6.0.1",
     "@nestjs/platform-express": "^6.8.3",
     "module-alias": "^2.2.2",
+    "nestjs-config": "^1.4.4",
+    "nestjs-eventstore": "^1.4.13",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^2.7.1",
     "rxjs": "^6.5.3"

@@ -1,6 +1,23 @@
 version: '3.7'
 
+networks:
+  building_net:
+    driver: bridge
+
 services:
+
+  eventstore:
+    image: eventstore/eventstore
+    ports:
+      - 2113:2113
+      - 1113:1113
+    environment:
+      - EVENTSTORE_RUN_PROJECTIONS=All
+      - EVENTSTORE_START_STANDARD_PROJECTIONS=true
+      - EVENT_STORE_PORT=1113
+    networks:
+      - building_net
+
   nodejs:
     build: nodejs
     volumes:
@@ -16,3 +33,9 @@ services:
     command: >
       ash -c "npm install &&
       npm run start:dev"
+    networks:
+      - building_net
+    depends_on:
+      - eventstore
+    links:
+      - eventstore
