@@ -10,8 +10,10 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
+            "runtimeExecutable":"node --inspect",
+            "cwd": "${workspaceRoot}",
             "program": "${workspaceFolder}/src/main.ts",
-            "preLaunchTask": "tsc: build - tsconfig.json"
+            "protocol": "auto",
         },
         {
             "type": "node",

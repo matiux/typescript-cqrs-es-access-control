@@ -4,17 +4,48 @@ networks:
   building_net:
     driver: bridge
 
+volumes:
+  vol_eventstore: {}
+  db-data: {}
+  mongo-config: {}
+
 services:
+
+  mongo-express:
+    image: mongo-express
+    #restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+    networks:
+      - building_net
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - db-data:/data/db
+      - mongo-config:/data/configdb
+    ports:
+      - 27017:27017
+    networks:
+      - building_net
 
   eventstore:
     image: eventstore/eventstore
     ports:
       - 2113:2113
       - 1113:1113
-    environment:
-      - EVENTSTORE_RUN_PROJECTIONS=All
-      - EVENTSTORE_START_STANDARD_PROJECTIONS=true
-      - EVENT_STORE_PORT=1113
+    volumes:
+      - vol_eventstore:/var/lib/eventstore
+    #environment:
+      #- EVENTSTORE_RUN_PROJECTIONS=All
+      #- EVENTSTORE_START_STANDARD_PROJECTIONS=true
+      #- EVENTSTORE_EXT_HTTP_PREFIXES=http://*:2113/
     networks:
       - building_net
 

@@ -7,12 +7,12 @@ export class CreateBuildingService {
 
     execute(createBuilding: CreateBuilding): void {
 
-        let building = Building.create(
-            createBuilding.getBuildingId(),
-            createBuilding.getOccurretAt(),
-        );
+        // let building = Building.create(
+        //     createBuilding.getBuildingId(),
+        //     createBuilding.getOccurretAt(),
+        // );
 
-        Logger.log('Log: Async CreateBuildingCommandHandler...', 'CreateBuilding command');
+        // Logger.log('Log: Async CreateBuildingCommandHandler...', 'CreateBuilding command');
 
     }
 }

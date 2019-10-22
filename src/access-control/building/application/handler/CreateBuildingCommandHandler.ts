@@ -7,9 +7,7 @@ import { Logger } from '@nestjs/common';
 @CommandHandler(CreateBuilding)
 export class CreateBuildingCommandHandler implements ICommandHandler<CreateBuilding> {
 
-    constructor(
-        private readonly publisher: EventPublisher,
-    ) { }
+    constructor(private readonly publisher: EventPublisher) { }
 
     async execute(createBuilding: CreateBuilding) {
 
@@ -18,10 +16,11 @@ export class CreateBuildingCommandHandler implements ICommandHandler<CreateBuild
         const building = this.publisher.mergeObjectContext(
             Building.create(
                 createBuilding.getBuildingId(),
+                createBuilding.getBuildingName(),
                 createBuilding.getOccurretAt(),
-            )
+            ),
         );
 
-        building.commit();
+        await building.commit();
     }
 }

@@ -5,9 +5,11 @@ import { ConfigModule, ConfigService } from 'nestjs-config';
 import * as path from 'path';
 import { EventStoreCqrsModule } from 'nestjs-eventstore';
 import { eventStoreBusConfig } from './event-bus.provider';
+import { TypegooseModule } from 'nestjs-typegoose';
 
 @Module({
     imports: [
+        TypegooseModule.forRoot('mongodb://mongodb:27017/nest'),
         ConfigModule.load(path.resolve(__dirname, 'config', '**/!(*.d).{ts,js}')),
         EventStoreCqrsModule.forRootAsync(
             {
@@ -22,8 +24,7 @@ import { eventStoreBusConfig } from './event-bus.provider';
             eventStoreBusConfig,
         ),
         BuildingModule,
-        CommonModule
+        CommonModule,
     ],
 })
-export class AppModule {
-}
+export class AppModule {}
